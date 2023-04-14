@@ -1,0 +1,162 @@
+{% extends 'main/base.html' %}
+
+{% block style %}
+    .card {
+    width: 400px;
+    height: 235px;
+    background: rgba(20,20,20);
+    box-shadow: rgba(0, 0, 0, 0.4) 10px 20px 30px, rgba(0, 0, 0, 0.3) 10px 1px 53px 3px, rgba(1, 0, 0, 0.2) 0px -1px 3px inset;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    font-weight: bolder;
+    color: #fff;
+    margin:auto;
+    border-radius: 1rem;
+    }
+    .card:hover {
+    transform: scale(1.021);
+    }
+    .card:active {
+    transform: scale(0.95) rotateZ(1.1deg);
+              }
+
+    button {
+    padding: 17px 40px;
+    border-radius: 50px;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all .5s ease;
+    }
+    
+    button:hover {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+    }
+    
+    button:active {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+    }
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,900&display=swap");
+
+* {
+  box-sizing: border-box !important;
+  padding: 0;
+  margin: auto;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: red;
+  font-family: "Nunito", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.marquee {
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  height: 40px;
+  width: 455px;
+  border-radius: 22px;
+  box-shadow: 4px 4px 0 #000;
+  overflow: hidden;
+  background: white;
+  white-space: nowrap;
+}
+
+.marquee--inner {
+  display: block;
+  width: 200%;
+  position: absolute;
+  animation: marquee 10s linear infinite;
+  &:hover {
+    animation-play-state: paused;
+    color: red;
+  }
+}
+
+span {
+  float: left;
+  width: 50%;
+  overflow: hidden;
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+.shoe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+{% endblock %}
+
+
+{%block content%}
+
+{% load static %}
+<a href='http://127.0.0.1:8000'>
+  <img src={% static 'newLogoWhite.png'%} width="200" height="100" class="shoe"/-->
+</a>
+<img src= {% static 'Air_Jordan_1_Lucky_Green.png'%} width="400" height="300" class="shoe"> 
+
+<div class="marquee">
+    <div class="marquee--inner">
+      <span>
+        <div> VERIFIED AUTHENTIC ✅ &nbsp;</div>
+      </span>
+      <span>
+        <div> VERIFIED AUTHENTIC ✅ &nbsp;</div>
+      </span>
+    </div>
+  </div>
+<br><br>
+
+<div class="card">
+    <p style="font-family: Verdana">
+        <h20> Shoe Model: {{Model}} </h20>
+        <br><br>
+        <h20>Unique Identifier: {{UID}}</h20>
+        <br><br><br>
+        
+    <h20>Origin Store: {{StoreName}}</h20>
+    <br><br> 
+      <button onclick="location.href='https://instagram.com/status'" type="button">
+        VIEW STORE
+      </button>
+
+    </p>
+</div>
+
+{%endblock%}
